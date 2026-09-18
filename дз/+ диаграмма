@@ -45,3 +45,5 @@ CREATE TABLE grades (
     CONSTRAINT fk_grades_teachers FOREIGN KEY (teacher_id) REFERENCES teachers(teacher_id)
 );
 
+<img width="834" height="546" alt="Снимок экрана 2026-09-18 191840" src="https://github.com/user-attachments/assets/44f0bc05-571d-4e77-9cc1-05cb9bc92bcf" />
+
