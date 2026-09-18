@@ -1,0 +1,47 @@
+Часть 1 анализ
+1.	Id_student, id_subject_id, exam_date
+2.	Пояснение: ни один первичный атрибут не может быть превичныйм ключом, так как один студент сдает много предметов, один преподаватель принимает много экзаменов, в одну и ту же дату сдается много предметов, другие варианты, например, студенты + предметы, не подойдут, если есть возможность пересдачи в другой день
+Зависимости функциональные:
+Id_student – name_student, id_group
+id_group – name_group
+id_teacher – name_teacher
+id_subject – name_subject
+(Id_student, id_subject, exam_date) - id_teacher, grade
+Транзитивные:
+Id_student - id_group - name_group
+Текущая нф – 1нф по причине: все значения атомарны, нет повторяющихся групп, но присутствуют частичные зависимости и  транзитивные
+
+часть 2
+CREATE TABLE groups(
+groups_id VARCHAR(10) PRIMARY KEY,
+groups_name VARCHAR(50) NOT NULL);
+
+CREATE TABLE students (
+    student_id INT PRIMARY KEY,
+    student_name VARCHAR(100) NOT NULL,
+    group_id VARCHAR(10) NOT NULL,
+    CONSTRAINT fk_students_groups FOREIGN KEY (group_id) REFERENCES groups(group_id)
+);
+
+CREATE TABLE teachers (
+    teacher_id INT PRIMARY KEY,
+    teacher_name VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE subjects (
+    subject_id INT PRIMARY KEY,
+    subject_name VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE grades (
+    grade_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    student_id INT NOT NULL,
+    subject_id INT NOT NULL,
+    teacher_id INT NOT NULL,
+    exam_date DATE NOT NULL,
+    grade INT NOT NULL,
+    CONSTRAINT fk_grades_students FOREIGN KEY (student_id) REFERENCES students(student_id),
+    CONSTRAINT fk_grades_subjects FOREIGN KEY (subject_id) REFERENCES subjects(subject_id),
+    CONSTRAINT fk_grades_teachers FOREIGN KEY (teacher_id) REFERENCES teachers(teacher_id)
+);
+
