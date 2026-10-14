@@ -14,3 +14,8 @@ insert into teachers(full_name, email, phone, created_at)
 value ('иванов иван петрович', 'ivanov@mail.com', '+79785353555', '2022-05-05'),
       ('иванов василий петрович', 'ivanov55@mail.com', '+79785353525', '2023-05-05'),
       ('соколова анна петрович', 'sokolova@mail.com', '+79785353551', '2022-06-05');
+      
+insert into students(full_name, email, phone, student_groups_id, birthday_date, created_at)
+value ('козлов иван петрович', 'kozlov@mail.com', '+79785353222', 1, '2002-05-05', '2022-05-05'),
+      ('соболев василий петрович', 'sobolev@mail.com', '+79785353544', 2, '1995-05-05', '2023-05-05'),
+      ('зайцева анна ивановна', 'zayceva@mail.com', '+79785353599', 3, '2000-05-05', '2022-06-05');
