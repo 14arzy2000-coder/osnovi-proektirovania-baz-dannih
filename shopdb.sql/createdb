@@ -1,0 +1,33 @@
+use chopdb;
+
+create table pokupateli(
+  id int primary key  AUTO_INCREMENT,
+    name_pokupatelya text not null,
+    numberr varchar(20) not null UNIQUE,
+    email varchar(50) not null UNIQUE,
+    balance int
+);
+
+create table kategorii_productov(
+  id int primary key  AUTO_INCREMENT,
+  name_kategorii varchar(100) not null
+);
+
+create table products(
+  id int primary key  AUTO_INCREMENT,
+    name_pr varchar(100),
+    articul int not null UNIQUE,
+    id_kategorii int not null,
+    
+    foreign key (id_kategorii) references kategorii_productov(id)
+);
+
+create table zakazy(
+  id int primary key  AUTO_INCREMENT,
+    vrema_pokupki date not null,
+    id_pokupatelya int not null,
+    id_producta int not null,
+    
+    foreign key (id_pokupatelya) references pokupateli(id),
+    foreign key (id_producta) references products(id)
+);
