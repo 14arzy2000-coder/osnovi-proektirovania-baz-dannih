@@ -1,4 +1,4 @@
-вызов процедуры - call имя_процедуры (сколько раз);
+вызов процедуры - call имя_процедуры (сколько записей добавит за один раз);
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_teacher_insert`(in count int)
 BEGIN
