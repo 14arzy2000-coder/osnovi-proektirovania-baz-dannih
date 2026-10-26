@@ -17,3 +17,7 @@ for row in rows:
     print(row)
 # 5 закрываем соединение
 cursor.close()
+
+
+
+v 0 1 6
