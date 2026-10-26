@@ -3,7 +3,7 @@ CREATE DEFINER=`root`@`localhost` FUNCTION `random_id_range`(tables_name varchar
 BEGIN
 	declare t_id int;
     select id into t_id
-    from teacher order by rand() limit 1;
+    from teachers order by rand() limit 1;
 RETURN t_id;
 END
 
@@ -37,7 +37,7 @@ END
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_subjects_insert`(in count int)
 BEGIN
-	declare i int default 1;
+   declare i int default 1;
     declare count int default 1;
     declare t_id int default 1;
     select Count(id) into i from subjects;
